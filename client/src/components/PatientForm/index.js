@@ -1,13 +1,16 @@
 import React from "react";
 import pdf from '../utils/pdf';
 import axios from "axios";
+import GeneralInfo from "../GeneralInfoPage";
+import ProblemsPage from "../ProblemsPage";
+import PsyInfo from "../PsyInfoPage";
+import PsyInfoContinued from "../PsyInfoContPage";
 import FilledForm from "../FilledForm";
 import Pdf from "react-to-pdf";
 import Button from "react-bootstrap/Button";
+
 const ref = React.createRef();
 let completeForm;
-
-
 
 
 
@@ -164,163 +167,6 @@ class PatientForm extends React.Component {
             </>
         );
     }
-}
-
-function GeneralInfo(props) {
-    if (props.currentPage !== 1) {
-        return null
-    }
-    return (
-        <div className="form-group">
-            <h3>General Information</h3>
-            <label htmlFor="email">Email Address</label>
-            <input
-                className="form-control"
-                id="email"
-                name="email"
-                type="text"
-                placeholder="Enter your email address"
-                value={props.email}
-                onChange={props.handleChange}
-            />
-            <label htmlFor="patientName">name</label>
-            <input
-                className="form-control"
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Enter your full name"
-                value={props.name}
-                onChange={props.handleChange}
-            />
-            <label htmlFor="dob">Date of Birth</label>
-            <input
-                className="form-control"
-                id="dob"
-                name="dob"
-                type="text"
-                placeholder="(mm/dd/yyyy)"
-                value={props.dob}
-                onChange={props.handleChange}
-            />
-            <label htmlFor="age">Enter your Age</label>
-            <input
-                className="form-control"
-                id="age"
-                name="age"
-                type="number"
-                placeholder="age"
-                value={props.age}
-                onChange={props.handleChange}
-            />
-        </div>
-    );
-}
-
-function ProblemsPage(props) {
-    if (props.currentPage !== 2) {
-        return null
-    }
-    return (
-        <div className="form-group">
-            <label htmlFor="otherProblems">Current Symptoms</label>
-            <input
-                className="form-control"
-                id="otherProblems"
-                name="otherProblems"
-                type="text"
-                placeholder="symptoms"
-                value={props.problems}
-                onChange={props.handleChange}
-            />
-        </div>
-    );
-}
-
-function PsyInfo(props) {
-    if (props.currentPage !== 3) {
-        return null
-    }
-    return (
-        <div className="form-group">
-            {/* checkbox, if yes, answer question */}
-            <label htmlFor="lastPsyProvider">Name of last psychiatric provider?</label>
-            <input
-                className="form-control"
-                id="lastPsyProvider"
-                name="lastPsyProvider"
-                type="text"
-                placeholder=""
-                value={props.lastPsyProvider}
-                onChange={props.handleChange}
-            />
-            {/* checkbox, if yes, answer question */}
-            <label htmlFor="lastPsyVisit">Last visit to psychiatric provider?</label>
-            <input
-                className="form-control"
-                id="lastPsyVisit"
-                name="lastPsyVisit"
-                type="text"
-                placeholder=""
-                value={props.lastPsyVisit}
-                onChange={props.handleChange}
-            />
-            <label htmlFor="psyMeds">Current Medication:</label>
-            <input
-                className="form-control"
-                id="psyMeds"
-                name="psyMeds"
-                type="psyMeds"
-                placeholder=""
-                value={props.psyMeds}
-                onChange={props.handleChange}
-            />
-            <label htmlFor="psySuicide">Have you ever attempted suicide?</label>
-            <input
-                className="form-control"
-                id="psySuicide"
-                name="psySuicide"
-                type="psySuicide"
-                placeholder=""
-                value={props.psySuicide}
-                onChange={props.handleChange}
-            />
-        </div>
-    );
-}
-
-function PsyInfoContinued(props) {
-    if (props.currentPage !== 4) {
-        return null
-    }
-    return (
-        <React.Fragment>
-            <div className="form-group">
-                <label htmlFor="erCount">How many visits have you had to the emergency room?</label>
-                <input
-                    className="form-control"
-                    id="erCount"
-                    name="erCount"
-                    type="erCount"
-                    placeholder=""
-                    value={props.erCount}
-                    onChange={props.handleChange}
-                />
-                <label htmlFor="erLastTime">When was the last time in the ER?</label>
-                <input
-                    className="form-control"
-                    id="erLastTime"
-                    name="erLastTime"
-                    type="erLastTime"
-                    placeholder=""
-                    value={props.erLastTime}
-                    onChange={props.handleChange}
-                />
-            </div>
-            <button className="btn btn-success btn-block">Submit</button>
-        </React.Fragment>
-
-    );
 }
 
 export default PatientForm;
